@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotu&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mrs+Sheppards&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Petrona:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+
+:root{
+    --blue:#6352f4a9;
+}
+*{
+    font-family: "Nunito Sans",sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border:none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+*::selection{
+    background: var(--blue);
+    color: #ffffff;
+
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+}
+section{
+    padding: 2rem 0;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--blue);
+    color: #fff;
+    padding: 8rem 3rem;
+    border:.2rem solid var(--blue);
+    cursor:pointer;
+    font-size: 1.7rem;
+}
+.btn:hover{
+    background: rgb(213, 235, 236);
+    color: var(--blue);
+}
+
+/* Login section */
+.login-form-container {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    z-index: 10000;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form-container.active {
+    top: 0;
+}
+
+.login-form-container form {
+    margin: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 50rem; /* Added max-width for larger screens */
+}
+
+.login-form-container form h3  {
+    font-size: 3rem;
+    color: #fbfeff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.login-form-container form .box {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0.6rem 0;
+    border: .1rem solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    text-transform:none;
+    background-color: #fff;
+}
+
+.login-form-container form .box:focus {
+    border-color: var(--blue); /* Assuming --blue is defined elsewhere */
+}
+
+.login-form-container form .btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form-container form .btn:hover {
+    background-color: #0056b3;
+}
+
+.login-form-container form p {
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    color: #f7f0f0;
+} 
+
+.login-form-container form p a {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.login-form-container form p a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+
+.login-form-container form .error-message, .success-message{
+    color: white;
+    text-transform: lowercase;
+    font-size: 1rem;
+}
+
+
+/* home section */
+.home{
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index:0;
+}
+
+.home .video-container video{
+    position:  absolute;
+    top: 0; left: 0;
+    z-index: -1;
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+
+
+/* media queries start */
+@media (min-width: 768px) {
+    .login-form-container form {
+        width: 40rem;
+        /* Adjusted width for larger screens */
+    }
+}
+@media (min-width:960px){
+    /* Making the controls appear in a grid on larger screens */
+    .home {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-flow: column;
+            position: relative;
+            z-index: 0;
+        }
+    .home .video-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting-Communities-With-Convinience</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"
+        integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="login.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <!-- =============================================================================== navbar start -->
+        <div id="menu-bar" class="fas fa-bars"></div>
+
+        <a href="#" class="logo"><span>QR - </span>Services</a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#book">book</a>
+            <a href="#packages">packages</a>
+            <a href="#services">services</a>
+            <a href="#gallery">gallery</a>
+            <a href="#review">review</a>
+            <a href="#contact">contact</a>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search" id="search-btn"></i>
+            <i class="far fa-user" id="login-btn"></i>
+            <i class="fas fa-qrcode" id="qr-code-icon"></i>
+
+        </div>
+
+        <form action="" class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="search here...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+
+    <!-- container to hold both QR-code and user profile information -->
+    <div id="info-container">
+        <div id="qr-code-container">
+            <img src="<%= qrImage %>" alt="QR Code" id="qr-code-img"><!-- Display QR code as an icon -->
+        </div>
+        <div id="profile-container">
+            <h1>Welcome, <%= userData.name %>!</h1>
+            <p>Email: <%= userData.email %>
+            </p>
+            <p>Location: <%= userData.location %>
+            </p>
+            <p>Contact: <%= userData.contact %>
+            </p>
+            <!-- <img src="<%= qrImage %>" alt="QR Code"> -->
+        </div>
+    </div>
+    <!-- ============================================================================================ navbar end -->
+
+    <!-- ========================================================== login page container-->
+
+    <div class="login-form-container">
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form action="/login" method="post">
+            <h3>login</h3>
+            <input type="text" class="box" id="name" name="username" placeholder="enter your email" required
+                autocomplete="off">
+            <input type="password" class="box" id="password" name="password" placeholder="enter your password" required>
+            <button type="submit" value="login now" class="btn">Login Now</button>
+            <input type="checkbox" id="remember">
+            <label for="remember">remember me</label>
+            <p> forget password? <a href="#">click here</a></p>
+            <p>don't have an account? <a href="/signup">register now</a></p>
+        </form>
+    </div>
+
+    <!-- ============================================================= login page container ends-->
+
+    <!--home  section starts-->
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>unlocking a world of convenience at your fingertips</h3>
+            <p>Scan our QR code for instant service access</p>
+
+            <a href="#" class="btn">discover more</a>
+        </div>
+
+        <div class="controls">
+            <span class="vid-btn active" data-src="video-(2).mp4.mp4"></span>
+            <span class="vid-btn" data-src="video-(1).mp4.mp4"></span>
+            <span class="vid-btn" data-src="video-(3).mp4.mp4"></span>
+            <span class="vid-btn" data-src="video-(4).mp4.mp4"></span>
+            <span class="vid-btn" data-src="video-(5).mp4.mp4"></span>
+            <span class="vid-btn" data-src="video-(6).mp4.mp4"></span>
+
+        </div>
+
+        <div class="video-container">
+            <video src="video-(2).mp4.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+
+
+
+
+    <!--book section starts -->
+
+    <section class="book" id="book">
+
+        <h1 class="heading">
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+            <span class="space"></span>
+            <span>n</span>
+            <span>o</span>
+            <span>w</span>
+        </h1>
+
+        <div class="row">
+
+            <div class="image">
+                <img src="images.jpg" alt="Book Image" />
+            </div>
+
+            <form id="bookingForm" action="" method="POST">
+                <div class="inputBox">
+                    <h3>Name</h3>
+                    <input type="text" id="name-input" placeholder="service name" required>
+                    <div class="error-message">Name is required.</div>
+
+                </div>
+
+                <div class="inputBox">
+                    <h3>Contact Information</h3>
+                    <input type="tel" id="contact-input" placeholder="Your Number" required>
+                    <div class="error-message">Valid contact number is required.</div>
+
+                </div>
+
+                <div class="inputBox">
+                    <h3>Service Request</h3>
+                    <input id="service-request-input" type="text" placeholder="Select your services from packages"
+                        required>
+                    <div class="error-message">Service request is required.</div>
+                </div>
+
+                <div class="inputBox">
+                    <h3>Service charge</h3>
+                    <input id="service-charge-input" type="text" placeholder="charge will appears according to your service" required>
+                    <div class="error-message">Service charge is required.</div>
+                </div>
+
+                <div class="inputBox">
+                    <h3>Location</h3>
+                    <input type="text" id="location-input" name="location" placeholder="Select your QR-Location" required disabled>
+                    <div class="error-message">Location is required.</div>
+                </div>
+
+                <div class="inputBox">
+                    <h3>Additional Service</h3>
+                    <input type="text" placeholder="Additional services will cost extra charge(100/Rs.)">
+                    <div class="error-message">Additional service is required.</div>
+                </div>
+                <input type="submit" class="btn" value="book now">
+            </form>
+        </div>
+
+
+    </section>
+    <!--book section end here -->
+
+    <!--package section starts-->
+
+    <section class="packages" id="packages">
+        <h1 class="heading">
+            <span>p</span>
+            <span>a</span>
+            <span>c</span>
+            <span>k</span>
+            <span>a</span>
+            <span>g</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="muncipal.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-city"></i> Muncipal Corporation</h3>
+                    <p>Nagar Nigam , Nainital Road , Haldwani Website - http://nagarnigamhaldwani.in
+                        Phone : 220035</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+
+
+            <div class="box">
+                <img src="veterinary.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-clinic-medical"></i> Veterinary</h3>
+                    <p>Near Government Girls PG College, Nawabi Rd · 081938 28036
+                        Open ⋅ Closes 8 pm!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="electrician.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-bolt"></i> Electrician</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. veritatis,nam!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="mechanic.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-tools"></i> Mechanic</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. veritatis,nam!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="plumber.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-wrench"></i> Plumber</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. veritatis,nam!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="hospital.png" alt="">
+                <div class="content">
+                    <h3><i class="fas fa-hospital"></i> Cunsult to Doctor</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. veritatis,nam!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="price"> 90.00/Rs.<span>120/Rs.</span></div>
+                    <a href="#book" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--service section starts here-->
+
+    <section class="services" id="services">
+        <h1 class="heading">
+            <span>s</span>
+            <span>e</span>
+            <span>r</span>
+            <span>v</span>
+            <span>i</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+        </h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-hospital"></i>
+                <h3>affordable consultation with doctors</h3>
+                <p>You can consult and book a appointment with doctor online through our QR-Service1</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-clinic-medical"></i>
+                <h3>gentle care & cure of pets</h3>
+                <p>Veterinary doctors deals with the health and wellbeing of animals, which includes preventative care,
+                    psychological
+                    analysis, and complex surgical procedures!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bullhorn"></i>
+                <h3>safety guidance</h3>
+                <p>our technicians helps and suggest you with the safety guidance!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-tools"></i>
+                <h3>around the clock service</h3>
+                <p>mechanic will reach you whenever and whereever you want!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-city"></i>
+                <h3>fastest Muncipal services</h3>
+                <p>municipal corporation will deals with garbage collection and dropping just by a request through our
+                    QR Service!</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-bolt"></i>
+                <h3>Electrician</h3>
+                <p> You can book an electrician to install, maintain, and repair electrical systems and equipment!</p>
+            </div>
+        </div>
+
+
+
+    </section>
+    <!--service section ends here-->
+    <!-- ========================================================================================================================================= -->
+    <!--gallery section starts-->
+    <section class="gallery" id="gallery">
+        <h1 class="heading">
+            <span>g</span>
+            <span>a</span>
+            <span>l</span>
+            <span>l</span>
+            <span>e</span>
+            <span>r</span>
+            <span>y</span>
+        </h1>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="gallery-1.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-2.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-3.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-4.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-5.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-6.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-7.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-8.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="gallery-9.jpg" alt="">
+                <div class="content">
+                    <h3>amazing places</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducsimus, tenetur.</p>
+                    <a href="#" class="btn">see more</a>
+                </div>
+            </div>
+
+    </section>
+    <!-- gallery section ends -->
+    <!-- ================================================================================================================================================ -->
+    <!-- review section starts -->
+    <section class="review" id="review">
+
+        <h1 class="heading">
+            <span>r</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+        <div class="swiper-container review-slider">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="review-1.jpg" alt="">
+                        <h3>joya deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicidolor provident ut accusantium delectus
+                            mollitia, minus, porro voluptatibus eius repellendus deserunt laboriosam? Odit quisquam
+                            velit error nisi soluta, sit enim.
+                            Eaque commodi explicabo voluptatem omnis. Consequatur, amet accusamus vero laudantium
+                            commodi reiciendis dolore beatae veniam nisi fuga mollitia ut fugiat accusantium! Earum
+                            sapiente quam quas totam ratione incidunt dolores dolore?
+                            Ipsa ullam repudiandae obcaecati, enim sunt sapiente quaerat accusantium quasi cumque,
+                            eveniet, incidunt deserunt sed voluptate facere nihil pariatur at dolore illo accusamus
+                            laudantium ut. Perferendis earum ipsam fuga asperiores.
+                            Laborum assumenda eos atque provident sint.</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="review-2.jpg" alt="">
+                        <h3>joya deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis atque esse necessitatibus,
+                            natus ratione cupiditate perferendis modi earum id expedita obcaecati placeat voluptate sed
+                            aperiam. Ex optio obcaecati ab architecto!
+                            Ducimus, nobis nihil. Laboriosam fugiat reiciendis eius? Aut suscipit ipsa aliquam
+                            temporibus doloremque, earum a id dolores exercitationem similique nostrum cumque molestias
+                            totam quo sed repellat quos inventore rem cum.lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. ipsa adipsisci quisquam sunt
+                            reprhenderit exercitationem</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="review-3.jpg" alt="">
+                        <h3>joya deo</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet eligendi itaque totam
+                            magnam doloremque hic officia ipsa. Magni, expedita laborum commodi accusamus a in,
+                            deserunt, amet repudiandae eaque voluptas atque?
+                            Debitis inventore at minus odit excepturi, similique ! Totam amet perspiciatis excepturi
+                            nisi fugiat, at harum tenetur commodi quae vel doloribus beatae quia voluptates. Adipisci,
+                            nobis ut.
+                            Officia beatae error placeat dolorum nobis nisi, consectetur cupiditate reiciendis! Quia
+                            quisquam omnis nihil molestiae quidem architecto temporibus provident corrupti libero
+                            aliquid, tempora illo. Ad consequuntur odit quasi ipsa necessitatibus!lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. ipsa adipsisci quisquam sunt
+                            reprhenderit exercitationem</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="review-4.jpg" alt="">
+                        <h3>joya deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum error excepturi eaque,
+                            repellendus minus enim deserunt. Repudiandae, corrupti fugiat suscipit et consequatur
+                            similique architecto iste voluptatibus ratione fugit quo officiis.
+                            Quos, unde animi beatae rem sed eligendi. Quam corporis voluptas optio, necessitatibus,
+                            soluta doloremque ipsam autem at vitae tenetur, quia iure. At minus facere quas officiis
+                            dolor! Repellat, aut alias!
+                            Consequatur veritatis, saepe fugit dignissimos ab similique quae corrupti? Nesciunt atque
+                            debitis minus aliquam quia. Repellendus, voluptas reprehenderit deserunt repudiandae, sit
+                            id, error molestiae et veritatis necessitatibus sed officiis? Dicta.lorem ipsum dolor sit
+                            amet consectetur adipisicing elit. ipsa adipsisci quisquam sunt
+                            reprhenderit exercitationem</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- review section ends -->
+    <!-- =================================================================================================================================================== -->
+    <!-- contact section starts -->
+    <section class="contact" id="contact">
+        <h1 class="heading">
+            <span>c</span>
+            <span>o</span>
+            <span>n</span>
+            <span>t</span>
+            <span>a</span>
+            <span>c</span>
+            <span>t</span>
+        </h1>
+        <div class="row">
+            <div class="image">
+                <img src="contactus.png" alt="">
+            </div>
+
+            <form action="#" method="post">
+                <div class="inputBox">
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="inputBox">
+                    <input type="text" id="subject" placeholder="Subject">
+                </div>
+                <textarea id="message" placeholder="Message" rows="5" required></textarea>
+                <input type="submit" id="submit" class="btn" value="Send Message">
+            </form>
+        </div>
+    </section>
+
+    <!-- contact section ends -->
+</body>
+
+
+<!-- brand section -->
+<section class="brand-container">
+    <div class="swiper-container brand-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="slide-1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="slide-2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="slide-3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="slide-4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="slide-5.jpg" alt=""></div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- footer section  -->
+<section class="footer">
+    <div class="box-container">
+        <div class="box">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta
+                sed ullam quaerat nemo officia accusantium corporis sunt aliquam impedit. Nemo, animi rem.</p>
+        </div>
+        <div class="box">
+            <h3>branch location </h3>
+            <a href="#">India</a>
+            <a href="#">USA</a>
+            <a href="#">Japan</a>
+            <a href="#">France</a>
+        </div>
+        <div class="box">
+            <h3>Quick links </h3>
+            <a href="#home">Home</a>
+            <a href="#book">Book</a>
+            <a href="#packages">Packages</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#review">Review</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="box">
+            <h3>Follow us </h3>
+            <a href="#">
+                <i class="fas-fa-facebook"></i>Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">Linkdin</a>
+        </div>
+
+    </div>
+
+    <h1 class="credit">created by <span>Mr. Manish K. Arya</span> | All rights reserved</h1>
+</section>
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="script.js"></script>
+<!-- Display QR code image -->
+<!-- <img src="<%= qrImage %>" alt="QR Code" id="qr-code-icon" /> -->
+
+
+</body>
+
+</html>

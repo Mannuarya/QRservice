@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"
+        integrity="sha512-ZDSPMa/JM1D+7kdg2x3BsruQ6T/JpJo3jWDWkCZsP+5yVyp1KfESqLI+7RqB5k24F7p2cV7i2YHh/890y6P6Sw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdTD0Jb7FeuTSUNSmKCW5Ni5WHrCIOLgc&callback=initMap" async -->
+    <!-- defer></script> -->
+    <link rel="stylesheet" href="app.css">
+    <title>SignUp</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="login-form-container active">
+        <form action="/signup" method="POST">
+            <h3>SignUp</h3>
+
+             
+
+
+                            <input type="email" class="box" id="email" name="email" placeholder="Enter your email..."
+                                required autocomplete="off"> <!-- Changed to email input -->
+                            <input type="password" class="box" name="password" id="password"
+                                placeholder="Enter your password" required>
+                            <input type="text" class="box" name="name" id="name" placeholder="Enter your name" required>
+                            <input type="tel" class="box" name="contact" id="contact"
+                                placeholder="Enter your contact number" required>
+                            <input type="text" class="box" name="location" id="location"
+                                placeholder="Please fill the add. according to your aadhar " required>
+
+                            <button type="submit" class="btn">SignUp</button>
+
+        </form>
+    </div>
+
+
+
+    <!--home  section starts-->
+    <section class="home" id="home">
+
+        <div class="controls">
+            <span class="vid-btn" data-src="video-(3).mp4.mp4"></span>
+        </div>
+
+        <div class="video-container">
+            <video src="video-(3).mp4.mp4" id="video-slider" loop autoplay muted></video>
+        </div>
+
+    </section>
+    <!--home  section ends-->
+
+</body>
+
+</html>
