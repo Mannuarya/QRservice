@@ -21,7 +21,10 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 mongoose
-  .connect("mongodb://localhost:27017/manish", {})
+  .connect(
+    "mongodb+srv://mannuarya2002:manishmongo@cluster0.kquyzjn.mongodb.net/",
+    {}
+  )
   .then(() => {
     console.log("Database connected Successfully");
   })

@@ -1,10 +1,13 @@
   const mongoose = require("mongoose");
 
   // Connect to the MongoDB database
-  mongoose.connect("mongodb://localhost:27017/manish", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  mongoose.connect(
+    "mongodb+srv://mannuarya2002:manishmongo@cluster0.kquyzjn.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  );
 
   const db = mongoose.connection;
 
